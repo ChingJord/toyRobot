@@ -40,7 +40,7 @@ describe 'Toy Robot' do
       toy_robot.report.should == "1,1,NORTH"
     end
 
-    it 'should ignore any move that would cause the robot to fall' do
+    it 'should ignore any move that would cause the robot to fall off the table' do
       initiate_game
       toy_robot.turn_left
       toy_robot.move
