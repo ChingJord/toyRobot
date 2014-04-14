@@ -17,7 +17,7 @@ describe 'Toy Robot' do
       toy_robot.should be_initiate
     end
 
-    it 'should move one unit forward to the NORTH direction when move is called after an initial place' do
+    it 'should move one unit forward to the NORTH direction when move is called after an initial placement' do
       initiate_game
       toy_robot.move
       toy_robot.x.should == 0
@@ -25,7 +25,7 @@ describe 'Toy Robot' do
       toy_robot.f.should == 'NORTH'
     end
 
-    it 'should move one unit forward to the SOUTH direction when move is called after an initial place ,with right' do
+    it 'should be facing WEST when turn_left is called after initial placement' do
       initiate_game
       toy_robot.place(1,1,'NORTH')
       toy_robot.turn_left
@@ -34,7 +34,7 @@ describe 'Toy Robot' do
       toy_robot.f.should == 'WEST'
     end
 
-    it 'should output the x,y,direction when report is called' do
+    it 'should output x,y,direction when REPORT is called' do
       initiate_game
       toy_robot.place(1,1,'NORTH')
       toy_robot.report.should == "1,1,NORTH"
@@ -42,12 +42,12 @@ describe 'Toy Robot' do
 
     it 'should ignore any move that would cause the robot to fall' do
       initiate_game
-      toy_robot.turn_right
+      toy_robot.turn_left
       toy_robot.move
-      toy_robot.report.should == '1,0,EAST'
+      toy_robot.report.should == '0,0,WEST'
     end
 
-    it 'initiate game with PLACE command followed by a forward move' do
+    it 'initiate with PLACE command followed by a MOVE' do
       toy_robot.start
       toy_robot.place(1,1,'NORTH')
       toy_robot.move
